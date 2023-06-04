@@ -84,7 +84,7 @@ namespace musilla
             }
             else
             {
-                MessageBox.Show("BİR SEÇİM YAPIN PLS");
+                MessageBox.Show("BİR SEÇİM YAPIN PLSS");
             }
         }
         private void kitapliklisteyisil_Click(object sender, EventArgs e)
