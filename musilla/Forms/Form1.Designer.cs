@@ -250,6 +250,7 @@
             this.FormBorderStylePanel.Name = "FormBorderStylePanel";
             this.FormBorderStylePanel.Size = new System.Drawing.Size(562, 30);
             this.FormBorderStylePanel.TabIndex = 13;
+            this.FormBorderStylePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.FormBorderStylePanel_Paint);
             this.FormBorderStylePanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormBorderStylePanel_MouseMove);
             // 
             // CloseButton

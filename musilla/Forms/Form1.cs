@@ -130,5 +130,10 @@ namespace musilla
         {
             Application.Exit();
         }
+
+        private void FormBorderStylePanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
