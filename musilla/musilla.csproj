@@ -108,12 +108,6 @@
     <Compile Include="Forms\adminsanatciayarlari.Designer.cs">
       <DependentUpon>adminsanatciayarlari.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\albumbilgileri.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\albumbilgileri.Designer.cs">
-      <DependentUpon>albumbilgileri.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\anasayfa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,12 +176,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Forms\tursariklari.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\tursariklari.Designer.cs">
-      <DependentUpon>tursariklari.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Forms\adinpanelsanatcilar.resx">
       <DependentUpon>adinpanelsanatcilar.cs</DependentUpon>
     </EmbeddedResource>
@@ -196,9 +184,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\adminsanatciayarlari.resx">
       <DependentUpon>adminsanatciayarlari.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\albumbilgileri.resx">
-      <DependentUpon>albumbilgileri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\anasayfa.resx">
       <DependentUpon>anasayfa.cs</DependentUpon>
@@ -243,9 +228,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="Forms\tursariklari.resx">
-      <DependentUpon>tursariklari.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
