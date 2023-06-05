@@ -18,7 +18,7 @@ namespace musilla
         OleDbCommand komut;
         OleDbDataAdapter adtr;
         DataSet ds;
-        string mail, id;
+        string mail, id, isim;
         public static string clad, clid, claciklama;
 
         public void idbulma()
@@ -35,7 +35,7 @@ namespace musilla
             baglan.Close();
 
         }
-        public void calmalisteleri()
+        public void Playlist()
         {
             calmalisteleriDGV.Rows.Clear();
             mail = frm1.grsmailbox.Text;
@@ -48,15 +48,28 @@ namespace musilla
             }
             baglan.Close();
         }
-        public void listeekle()
+        public void ListName()
         {
             baglan.Open();
-            komut = new OleDbCommand("insert into playlistler (isim,kullaniciid) values ('Yeni Çalma Listesi','" + id + "')",baglan);
+            komut = new OleDbCommand("Select isim From playlistler where playlistID=" + clid + "",baglan);
+            oku = komut.ExecuteReader();
+            while (oku.Read())
+            {
+                isim = oku[0].ToString();
+                break;
+            }
+            baglan.Close();
+            SelectedPlaylist.Text = isim;
+        }
+        public void AddList()
+        {
+            baglan.Open();
+            komut = new OleDbCommand("insert into playlistler (isim,kullaniciid) values ('Yeni Çalma Listesi','" + id + "')", baglan);
             komut.ExecuteNonQuery();
             baglan.Close();
             baglan.Close();
         }
-        public void listesil()
+        public void DelList()
         {
             baglan.Open();
             komut = new OleDbCommand("DELETE from playlistler WHERE playlistID=" + clid + "", baglan);
@@ -66,15 +79,38 @@ namespace musilla
         private void kitaplik_Load(object sender, EventArgs e)
         {
             idbulma();
-            calmalisteleri();
+            Playlist();
+            calmalisteleriDGV.ClearSelection(); 
 
         }
-        private void kitaplikyenile_Click(object sender, EventArgs e)
+
+        private void calmalisteleriDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            calmalisteleri();
+            clid = calmalisteleriDGV.SelectedRows[0].Cells["playlistID"].Value.ToString();
+            ListName();
         }
 
-        private void kitapliklisteyiac_Click(object sender, EventArgs e)
+        private void CreateList_Click(object sender, EventArgs e)
+        {
+            AddList();
+            Playlist();
+
+        }
+
+        private void EditList_Click(object sender, EventArgs e)
+        {
+            if (clid != null)
+            {
+                calmalistesidüzenleme cld = new calmalistesidüzenleme();
+                cld.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("BİR SEÇİM YAPIN PLSS");
+            }
+        }
+
+        private void OpenList_Click(object sender, EventArgs e)
         {
             if (clid != null)
             {
@@ -87,12 +123,19 @@ namespace musilla
                 MessageBox.Show("BİR SEÇİM YAPIN PLSS");
             }
         }
-        private void kitapliklisteyisil_Click(object sender, EventArgs e)
+
+        private void RefreshList_Click(object sender, EventArgs e)
+        {
+            Playlist();
+
+        }
+
+        private void DeleteList_Click(object sender, EventArgs e)
         {
             if (clid != null)
             {
-                listesil();
-                calmalisteleri();
+                DelList();
+                Playlist();
             }
             else
             {
@@ -100,49 +143,5 @@ namespace musilla
             }
         }
 
-        private void kitapliklisteekle_Click(object sender, EventArgs e)
-        {
-            listeekle();
-            calmalisteleri();
-        }
-
-        private void calmalisteleriDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void calmalisteleriDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            clid = calmalisteleriDGV.SelectedRows[0].Cells["playlistID"].Value.ToString();
-        }
-
-        private void kitapliksecilenlisteyiduzenleme_Click(object sender, EventArgs e)
-        {  
-            if (clid != null)
-            {
-                calmalistesidüzenleme cld = new calmalistesidüzenleme();
-                cld.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("BİR SEÇİM YAPIN PLSS");
-            }
-        }
-
-        private void kitaplikgeritus_Click(object sender, EventArgs e)
-        {
-            anasayfa anasayfa = new anasayfa();
-            anasayfa.Show();
-            this.Close();
-        }
-      
-        private void calmalisteleriDGV_SelectionChanged(object sender, EventArgs e)
-        {      
-
-        }
-
-        
-
-        
     }
 }
