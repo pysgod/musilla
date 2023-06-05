@@ -5,9 +5,11 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Security;
+using System.Web.WebSockets;
 using System.Windows.Forms;
 
 namespace musilla
@@ -19,6 +21,34 @@ namespace musilla
             InitializeComponent();
         }
         private Form currentChildForm;
+        #region FormBorderStyle
+        [DllImport("user32.DLL")]
+        private extern static int SendMessage(System.IntPtr handle, int Msg, int one, int two);
+        [DllImport("user32.DLL")]
+        private extern static bool ReleaseCapture();
+        private void FormBorderStyle_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (e.Button == MouseButtons.Left)
+            {
+                if (ReleaseCapture())
+                {
+                    SendMessage(Handle, 0xA1, 0x2, 0);
+                }
+            }
+        }
+        private void FormBorderStyle2_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            if (e.Button == MouseButtons.Left)
+            {
+                if (ReleaseCapture())
+                {
+                    SendMessage(Handle, 0xA1, 0x2, 0);
+                }
+            }
+        }
+        #endregion
         private void OpenChildForm(Form childForm)
         {
             //open only form
@@ -26,7 +56,7 @@ namespace musilla
             currentChildForm = childForm;
             //End
             childForm.TopLevel = false;
-            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             childForm.Dock = DockStyle.Fill;
             PagesPanel.Controls.Add(childForm);
             PagesPanel.Tag = childForm;
@@ -35,12 +65,29 @@ namespace musilla
         }
         private void MainPageButton_Click(object sender, EventArgs e)
         {
-           
+            PageNameLabel.Text = "Ana Sayfa";
         }
 
         private void LibraryPageButton_Click(object sender, EventArgs e)
         {
+            PageNameLabel.Text = "Kitaplık";
             OpenChildForm(new kitaplik());
+        }
+
+        private void SearchPageButton_Click(object sender, EventArgs e)
+        {
+            PageNameLabel.Text = "Arama";
+            OpenChildForm(new arama());
+        }
+
+        private void SettingsPageButton_Click(object sender, EventArgs e)
+        {
+            PageNameLabel.Text = "Ayarlar";
+        }
+
+        private void CloseButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

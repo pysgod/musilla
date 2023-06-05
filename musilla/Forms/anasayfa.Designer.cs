@@ -33,9 +33,14 @@
             this.MainPageButton = new Guna.UI2.WinForms.Guna2Button();
             this.SettingsPageButton = new Guna.UI2.WinForms.Guna2Button();
             this.SearchPageButton = new Guna.UI2.WinForms.Guna2Button();
-            this.label2 = new System.Windows.Forms.Label();
+            this.PageNameLabel = new System.Windows.Forms.Label();
             this.PagesPanel = new Guna.UI2.WinForms.Guna2Panel();
+            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.FormBorderStyle1 = new Guna.UI2.WinForms.Guna2Panel();
+            this.CloseButton = new Guna.UI2.WinForms.Guna2Button();
+            this.FormBorderStyle2 = new Guna.UI2.WinForms.Guna2Panel();
             this.tableLayoutPanel1.SuspendLayout();
+            this.FormBorderStyle1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -47,7 +52,7 @@
             this.tableLayoutPanel1.Controls.Add(this.MainPageButton, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.SettingsPageButton, 0, 3);
             this.tableLayoutPanel1.Controls.Add(this.SearchPageButton, 0, 2);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(2, 146);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 85);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -132,6 +137,7 @@
             this.SettingsPageButton.Size = new System.Drawing.Size(182, 38);
             this.SettingsPageButton.TabIndex = 3;
             this.SettingsPageButton.Text = "Ayarlar";
+            this.SettingsPageButton.Click += new System.EventHandler(this.SettingsPageButton_Click);
             // 
             // SearchPageButton
             // 
@@ -157,25 +163,76 @@
             this.SearchPageButton.Size = new System.Drawing.Size(182, 38);
             this.SearchPageButton.TabIndex = 2;
             this.SearchPageButton.Text = "Arama";
+            this.SearchPageButton.Click += new System.EventHandler(this.SearchPageButton_Click);
             // 
-            // label2
+            // PageNameLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Cambria", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(12, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(157, 37);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Ana Sayfa";
+            this.PageNameLabel.AutoSize = true;
+            this.PageNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.PageNameLabel.Font = new System.Drawing.Font("Cambria", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.PageNameLabel.ForeColor = System.Drawing.Color.Black;
+            this.PageNameLabel.Location = new System.Drawing.Point(6, 37);
+            this.PageNameLabel.Name = "PageNameLabel";
+            this.PageNameLabel.Size = new System.Drawing.Size(183, 43);
+            this.PageNameLabel.TabIndex = 7;
+            this.PageNameLabel.Text = "Ana Sayfa";
             // 
             // PagesPanel
             // 
             this.PagesPanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PagesPanel.Location = new System.Drawing.Point(190, 0);
+            this.PagesPanel.Location = new System.Drawing.Point(195, 0);
             this.PagesPanel.Name = "PagesPanel";
-            this.PagesPanel.Size = new System.Drawing.Size(850, 650);
+            this.PagesPanel.Size = new System.Drawing.Size(1085, 650);
             this.PagesPanel.TabIndex = 8;
+            // 
+            // guna2GroupBox1
+            // 
+            this.guna2GroupBox1.BorderColor = System.Drawing.Color.White;
+            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.White;
+            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
+            this.guna2GroupBox1.Location = new System.Drawing.Point(5, 82);
+            this.guna2GroupBox1.Name = "guna2GroupBox1";
+            this.guna2GroupBox1.Size = new System.Drawing.Size(184, 2);
+            this.guna2GroupBox1.TabIndex = 9;
+            this.guna2GroupBox1.Text = "guna2GroupBox1";
+            // 
+            // FormBorderStyle1
+            // 
+            this.FormBorderStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle1.Controls.Add(this.CloseButton);
+            this.FormBorderStyle1.Location = new System.Drawing.Point(195, 0);
+            this.FormBorderStyle1.Name = "FormBorderStyle1";
+            this.FormBorderStyle1.Size = new System.Drawing.Size(1085, 30);
+            this.FormBorderStyle1.TabIndex = 0;
+            this.FormBorderStyle1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormBorderStyle_MouseMove);
+            // 
+            // CloseButton
+            // 
+            this.CloseButton.BackgroundImage = global::musilla.Properties.Resources.icons8_cancel_50;
+            this.CloseButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.CloseButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CloseButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CloseButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CloseButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CloseButton.Dock = System.Windows.Forms.DockStyle.Right;
+            this.CloseButton.FillColor = System.Drawing.Color.Transparent;
+            this.CloseButton.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.CloseButton.ForeColor = System.Drawing.Color.White;
+            this.CloseButton.Location = new System.Drawing.Point(1046, 0);
+            this.CloseButton.Name = "CloseButton";
+            this.CloseButton.Size = new System.Drawing.Size(39, 30);
+            this.CloseButton.TabIndex = 2;
+            this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
+            // 
+            // FormBorderStyle2
+            // 
+            this.FormBorderStyle2.BackColor = System.Drawing.Color.Transparent;
+            this.FormBorderStyle2.Location = new System.Drawing.Point(-14, 0);
+            this.FormBorderStyle2.Name = "FormBorderStyle2";
+            this.FormBorderStyle2.Size = new System.Drawing.Size(211, 30);
+            this.FormBorderStyle2.TabIndex = 3;
+            this.FormBorderStyle2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormBorderStyle2_MouseMove);
             // 
             // anasayfa
             // 
@@ -183,15 +240,19 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::musilla.Properties.Resources.beautiful_shapes_abstract_background_free_video;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1040, 650);
+            this.ClientSize = new System.Drawing.Size(1280, 650);
+            this.Controls.Add(this.FormBorderStyle1);
+            this.Controls.Add(this.FormBorderStyle2);
+            this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.PageNameLabel);
             this.Controls.Add(this.PagesPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "anasayfa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "anasayfa";
+            this.Text = "MainPage";
             this.tableLayoutPanel1.ResumeLayout(false);
+            this.FormBorderStyle1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -202,8 +263,12 @@
         private Guna.UI2.WinForms.Guna2Button MainPageButton;
         private Guna.UI2.WinForms.Guna2Button SearchPageButton;
         private Guna.UI2.WinForms.Guna2Button SettingsPageButton;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label PageNameLabel;
         private Guna.UI2.WinForms.Guna2Panel PagesPanel;
         private Guna.UI2.WinForms.Guna2Button LibraryPageButton;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
+        private Guna.UI2.WinForms.Guna2Panel FormBorderStyle1;
+        private Guna.UI2.WinForms.Guna2Button CloseButton;
+        private Guna.UI2.WinForms.Guna2Panel FormBorderStyle2;
     }
 }
