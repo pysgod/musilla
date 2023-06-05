@@ -320,5 +320,23 @@
   <ItemGroup>
     <None Include="Resources\icons8-add-50.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-minus-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-create-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-refresh-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-playlist-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-save-52.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
