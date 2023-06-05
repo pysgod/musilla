@@ -32,7 +32,7 @@
             this.cldcalmalistesiaciklamasi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.cldkaydetbtn = new System.Windows.Forms.Button();
+            this.EditList = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // cldcalmalistesiadi
@@ -67,22 +67,32 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Çalma Listesi Açıklaması:";
             // 
-            // cldkaydetbtn
+            // EditList
             // 
-            this.cldkaydetbtn.Location = new System.Drawing.Point(11, 78);
-            this.cldkaydetbtn.Name = "cldkaydetbtn";
-            this.cldkaydetbtn.Size = new System.Drawing.Size(272, 25);
-            this.cldkaydetbtn.TabIndex = 5;
-            this.cldkaydetbtn.Text = "kaydet";
-            this.cldkaydetbtn.UseVisualStyleBackColor = true;
-            this.cldkaydetbtn.Click += new System.EventHandler(this.cldkaydetbtn_Click);
+            this.EditList.AutoRoundedCorners = true;
+            this.EditList.BorderRadius = 21;
+            this.EditList.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.EditList.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.EditList.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.EditList.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.EditList.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(222)))), ((int)(((byte)(177)))));
+            this.EditList.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.EditList.ForeColor = System.Drawing.Color.White;
+            this.EditList.Image = global::musilla.Properties.Resources.icons8_save_52;
+            this.EditList.ImageSize = new System.Drawing.Size(25, 25);
+            this.EditList.Location = new System.Drawing.Point(11, 64);
+            this.EditList.Name = "EditList";
+            this.EditList.Size = new System.Drawing.Size(276, 45);
+            this.EditList.TabIndex = 15;
+            this.EditList.Text = " Kaydet";
+            this.EditList.Click += new System.EventHandler(this.EditList_Click);
             // 
             // calmalistesidüzenleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(299, 115);
-            this.Controls.Add(this.cldkaydetbtn);
+            this.Controls.Add(this.EditList);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cldcalmalistesiaciklamasi);
@@ -102,6 +112,6 @@
         public System.Windows.Forms.TextBox cldcalmalistesiaciklamasi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button cldkaydetbtn;
+        private Guna.UI2.WinForms.Guna2Button EditList;
     }
 }
