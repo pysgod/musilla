@@ -26,147 +26,92 @@ namespace musilla
         OleDbDataReader oku;
         DataSet ds;
         
-        public static string aSarki,aSanatci,aAlbum,aKullanici,aTur;
+        public static string aSarki,aSanatci,aKullanici;
         public static bool aramaSarkiForm =false;
         public int gidenveri = 1;
 
         //void
-        public void sarkiarama()
+        public void SearchSong()
         {
+            sarkilarDGV.Rows.Clear();
             baglan.Open();
-            adtr = new OleDbDataAdapter("SELECT s.sarkiID,s.isim AS [Şarkılar], a.isim AS [Albümler], t.musictur AS [Türler], s.sure AS [🕒] FROM sarkilar AS s,albumler AS a, musictur AS t WHERE s.albumler = a.Kimlik and s.tur = t.Kimlik and s.isim LIKE '"+ aramatxt.Text +"%'",baglan);
-            ds = new DataSet();
-            adtr.Fill(ds,"sarkilar");
-            sarkilarDGV.DataSource = ds.Tables["sarkilar"];
-            sarkilarDGV.Columns[0].Visible=false;
-            baglan.Close();
-        }
-        public void sanatciarama()
-        {
-            baglan.Open();
-            adtr = new OleDbDataAdapter("SELECT Kimlik,kullaniciadi as [Sanatçılar],ad +' '+soyad as [Adı Soyadı] FROM sanatcilar Where kullaniciadi LIKE '"+aramatxt.Text+"%'", baglan);
-            ds = new DataSet();
-            adtr.Fill(ds, "sanatcilar");
-            sanatcilarDGV.DataSource = ds.Tables["sanatcilar"];
-            sanatcilarDGV.Columns[0].Visible = false;
-            baglan.Close();
-            for (int i = 0; i <= 1; i++)
+            komut = new OleDbCommand("SELECT s.sarkiID,s.isim,sa.kullaniciadi, a.isim as [albümler] , t.musictur, s.sure FROM sarkilar AS s,albumler AS a, musictur AS t,sanatcilar as sa WHERE s.albumler = a.Kimlik and s.sanatciid = sa.Kimlik and s.tur = t.Kimlik and s.isim LIKE '"+ SearchBox.Text +"%'",baglan);
+            oku = komut.ExecuteReader();
+            while (oku.Read())
             {
-                sanatcilarDGV.Columns[i].Width = sanatcilarDGV.Width / 2;
+                sarkilarDGV.Rows.Add(oku["sarkiID"], oku["isim"], oku["kullaniciadi"], oku["albümler"], oku["musictur"], oku["sure"]);
             }
-        }
-        public void albumarama()
-        {
-            baglan.Open();
-            adtr = new OleDbDataAdapter("SELECT a.Kimlik,a.isim as [Albümler],s.kullaniciadi as [Sanatçısı],a.albumyili as [Çıkış Tarihi] FROM albumler as a,sanatcilar as s Where a.sanatcilarid = s.Kimlik and a.isim LIKE '" + aramatxt.Text + "%'", baglan);
-            ds = new DataSet();
-            adtr.Fill(ds, "albumler");
-            albumlerDGV.DataSource = ds.Tables["albumler"];
             baglan.Close();
-            albumlerDGV.Columns[0].Visible = false;
-            for (int i = 0; i <= 2; i++)
+        }
+        public void SearchArtist()
+        {
+            sanatcilarDGV.Rows.Clear();
+            baglan.Open();
+            komut = new OleDbCommand("SELECT Kimlik,kullaniciadi,ad +' '+soyad as [Adı Soyadı] FROM sanatcilar Where kullaniciadi LIKE '"+SearchBox.Text+"%'", baglan);
+            oku = komut.ExecuteReader();
+            while (oku.Read())
             {
-                albumlerDGV.Columns[i].Width = albumlerDGV.Width / 3;
+                sanatcilarDGV.Rows.Add(oku["Kimlik"], oku["kullaniciadi"], oku["Adı Soyadı"]);
             }
-        }
-        public void kullaniciarama()
-        {
-            baglan.Open();
-            adtr = new OleDbDataAdapter("SELECT kullaniciID,kullaniciadi as [Kullanıcılar] FROM kullanicilar WHERE kullaniciadi LIKE '" + aramatxt.Text + "%'", baglan);
-            ds = new DataSet();
-            adtr.Fill(ds, "kullanicilar");
-            kullanicilarDGV.DataSource = ds.Tables["kullanicilar"];
-            kullanicilarDGV.Columns[0].Visible = false;
             baglan.Close();
-            kullanicilarDGV.Columns[0].Width = kullanicilarDGV.Width;
+        }
+        public void SearchUser()
+        {
+            kullanicilarDGV.Rows.Clear();
+            baglan.Open();
+            komut = new OleDbCommand("SELECT kullaniciID,kullaniciadi FROM kullanicilar WHERE kullaniciadi LIKE '" + SearchBox.Text + "%'", baglan);
+            oku=komut.ExecuteReader();
+            while (oku.Read())
+            {
+                kullanicilarDGV.Rows.Add(oku["kullaniciID"], oku["kullaniciadi"]);
+            }
+            baglan.Close();
             
-        }
-        public void turkontrol()
-        {
-            baglan.Open();
-            adtr = new OleDbDataAdapter("Select Kimlik,musictur as [Türler] FROM musictur", baglan);
-            ds = new DataSet();
-            adtr.Fill(ds,"musictur");
-            turlerDGV.DataSource = ds.Tables["musictur"];
-            turlerDGV.Columns[0].Visible = false;
-            baglan.Close(); 
         }
         //void
         private void arama_Load(object sender, EventArgs e)
         {
             aramaSarkiForm = false;
-            turkontrol();
+            sanatcilarDGV.ClearSelection();
+            kullanicilarDGV.ClearSelection();
+            sarkilarDGV.ClearSelection();
         }
-        private void aramabuton_Click(object sender, EventArgs e)
+        private void SearchButton_Click(object sender, EventArgs e)
         {
-            sarkiarama();
-            sanatciarama();
-            albumarama();
-            kullaniciarama();
-
-        }
-
-        private void turlerDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            aTur = turlerDGV.SelectedRows[0].Cells["Kimlik"].Value.ToString();
-        }
-
- 
-
-        private void sarkilarDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-            sarkicalma sarkicalma = new sarkicalma(gidenveri);
-            this.Close();
-            sarkicalma.Show();
+            if (SearchBox.Text=="")
+            {
+                MessageBox.Show("Arama yapılamadı.");
+            }
+            else
+            {
+                SearchUser();
+                SearchArtist();
+                SearchSong();
+            }
             
+        }
+
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
 
-        private void albumlerDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void sarkilarDGV_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            albumbilgileri albumbilgileri = new albumbilgileri();
-            albumbilgileri.Show();
+            sarkicalma sarkicalma = new sarkicalma(gidenveri);
+            sarkicalma.Show();
             this.Close();
         }
-
-        private void sanatcilarDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void sanatcilarDGV_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            sanatcibilgileri sanatcibilgileri = new sanatcibilgileri();
-            sanatcibilgileri.Show();
-            this.Close();
+            aSanatci = sanatcilarDGV.SelectedRows[0].Cells["Kimlik"].Value.ToString();
         }
-
-        private void kullanicilarDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            kullanicibilgileri kullanicibilgileri = new kullanicibilgileri();
-            kullanicibilgileri.Show();
-            this.Close();
-        }
-
-        private void sarkilarDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void eToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void sarkilarDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void sarkilarDGV_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             aSarki = sarkilarDGV.SelectedRows[0].Cells["sarkiID"].Value.ToString();
         }
 
-        private void sanatcilarDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            aSanatci = sanatcilarDGV.SelectedRows[0].Cells["Kimlik"].Value.ToString();
-        }
-        private void albumlerDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            aAlbum = albumlerDGV.SelectedRows[0].Cells["Kimlik"].Value.ToString();
-        }
         private void kullanicilarDGV_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             aKullanici = kullanicilarDGV.SelectedRows[0].Cells["kullaniciID"].Value.ToString();
