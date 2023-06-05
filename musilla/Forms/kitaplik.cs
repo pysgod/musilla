@@ -81,7 +81,6 @@ namespace musilla
             idbulma();
             Playlist();
             calmalisteleriDGV.ClearSelection(); 
-
         }
 
         private void calmalisteleriDGV_CellClick(object sender, DataGridViewCellEventArgs e)

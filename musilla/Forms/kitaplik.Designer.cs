@@ -33,6 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.calmalisteleriDGV = new System.Windows.Forms.DataGridView();
+            this.playlistID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.baslik = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SelectedPlaylist = new Guna.UI2.WinForms.Guna2TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.OpenList = new Guna.UI2.WinForms.Guna2Button();
@@ -40,10 +43,6 @@
             this.EditList = new Guna.UI2.WinForms.Guna2Button();
             this.DeleteList = new Guna.UI2.WinForms.Guna2Button();
             this.CreateList = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
-            this.playlistID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.baslik = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.calmalisteleriDGV)).BeginInit();
             this.SuspendLayout();
             // 
@@ -97,9 +96,32 @@
             this.calmalisteleriDGV.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.calmalisteleriDGV.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.calmalisteleriDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.calmalisteleriDGV.Size = new System.Drawing.Size(826, 550);
+            this.calmalisteleriDGV.Size = new System.Drawing.Size(1061, 547);
             this.calmalisteleriDGV.TabIndex = 9;
             this.calmalisteleriDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.calmalisteleriDGV_CellClick);
+            // 
+            // playlistID
+            // 
+            this.playlistID.HeaderText = "playlistID";
+            this.playlistID.Name = "playlistID";
+            this.playlistID.ReadOnly = true;
+            this.playlistID.Visible = false;
+            // 
+            // baslik
+            // 
+            this.baslik.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.baslik.FillWeight = 50F;
+            this.baslik.HeaderText = "Başlık";
+            this.baslik.Name = "baslik";
+            this.baslik.ReadOnly = true;
+            // 
+            // aciklama
+            // 
+            this.aciklama.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.aciklama.HeaderText = "Açıklama";
+            this.aciklama.Name = "aciklama";
+            this.aciklama.ReadOnly = true;
+            this.aciklama.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // SelectedPlaylist
             // 
@@ -113,18 +135,18 @@
             this.SelectedPlaylist.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.SelectedPlaylist.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.SelectedPlaylist.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.SelectedPlaylist.Location = new System.Drawing.Point(653, 612);
+            this.SelectedPlaylist.Location = new System.Drawing.Point(895, 599);
             this.SelectedPlaylist.Name = "SelectedPlaylist";
             this.SelectedPlaylist.PasswordChar = '\0';
             this.SelectedPlaylist.PlaceholderText = "";
             this.SelectedPlaylist.SelectedText = "";
-            this.SelectedPlaylist.Size = new System.Drawing.Size(185, 26);
+            this.SelectedPlaylist.Size = new System.Drawing.Size(177, 39);
             this.SelectedPlaylist.TabIndex = 17;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(653, 593);
+            this.label1.Location = new System.Drawing.Point(822, 613);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(67, 13);
             this.label1.TabIndex = 18;
@@ -231,46 +253,12 @@
             this.CreateList.Text = "Liste Oluştur";
             this.CreateList.Click += new System.EventHandler(this.CreateList_Click);
             // 
-            // guna2GroupBox1
-            // 
-            this.guna2GroupBox1.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GroupBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.guna2GroupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(125)))), ((int)(((byte)(137)))), ((int)(((byte)(149)))));
-            this.guna2GroupBox1.Location = new System.Drawing.Point(12, 61);
-            this.guna2GroupBox1.Name = "guna2GroupBox1";
-            this.guna2GroupBox1.Size = new System.Drawing.Size(826, 2);
-            this.guna2GroupBox1.TabIndex = 19;
-            this.guna2GroupBox1.Text = "guna2GroupBox1";
-            // 
-            // playlistID
-            // 
-            this.playlistID.HeaderText = "playlistID";
-            this.playlistID.Name = "playlistID";
-            this.playlistID.ReadOnly = true;
-            this.playlistID.Visible = false;
-            // 
-            // baslik
-            // 
-            this.baslik.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.baslik.FillWeight = 50F;
-            this.baslik.HeaderText = "Başlık";
-            this.baslik.Name = "baslik";
-            this.baslik.ReadOnly = true;
-            // 
-            // aciklama
-            // 
-            this.aciklama.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.aciklama.HeaderText = "Açıklama";
-            this.aciklama.Name = "aciklama";
-            this.aciklama.ReadOnly = true;
-            this.aciklama.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // kitaplik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(850, 650);
-            this.Controls.Add(this.guna2GroupBox1);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.ClientSize = new System.Drawing.Size(1085, 650);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SelectedPlaylist);
             this.Controls.Add(this.OpenList);
@@ -299,7 +287,6 @@
         private Guna.UI2.WinForms.Guna2Button OpenList;
         private Guna.UI2.WinForms.Guna2TextBox SelectedPlaylist;
         private System.Windows.Forms.Label label1;
-        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn playlistID;
         private System.Windows.Forms.DataGridViewTextBoxColumn baslik;
         private System.Windows.Forms.DataGridViewTextBoxColumn aciklama;
