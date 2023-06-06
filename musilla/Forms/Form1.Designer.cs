@@ -36,8 +36,6 @@
             this.grspassbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.grsmailbox = new Guna.UI2.WinForms.Guna2TextBox();
             this.LoginButton = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.AdminLogin = new Guna.UI2.WinForms.Guna2GradientButton();
-            this.guna2GradientButton1 = new Guna.UI2.WinForms.Guna2GradientButton();
             this.FormBorderStylePanel = new Guna.UI2.WinForms.Guna2Panel();
             this.CloseButton = new Guna.UI2.WinForms.Guna2Button();
             this.guna2Panel1.SuspendLayout();
@@ -49,7 +47,7 @@
             // 
             this.grsuyarilbl.AutoSize = true;
             this.grsuyarilbl.ForeColor = System.Drawing.Color.Red;
-            this.grsuyarilbl.Location = new System.Drawing.Point(40, 152);
+            this.grsuyarilbl.Location = new System.Drawing.Point(40, 122);
             this.grsuyarilbl.Name = "grsuyarilbl";
             this.grsuyarilbl.Size = new System.Drawing.Size(0, 13);
             this.grsuyarilbl.TabIndex = 5;
@@ -102,7 +100,7 @@
             this.PassShowHide.CheckedState.BorderThickness = 0;
             this.PassShowHide.CheckedState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(222)))), ((int)(((byte)(177)))));
             this.PassShowHide.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
-            this.PassShowHide.Location = new System.Drawing.Point(279, 281);
+            this.PassShowHide.Location = new System.Drawing.Point(279, 236);
             this.PassShowHide.Name = "PassShowHide";
             this.PassShowHide.Size = new System.Drawing.Size(57, 17);
             this.PassShowHide.TabIndex = 8;
@@ -134,7 +132,7 @@
             this.grspassbox.IconLeft = global::musilla.Properties.Resources.icons8_secure_100;
             this.grspassbox.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.grspassbox.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.grspassbox.Location = new System.Drawing.Point(22, 232);
+            this.grspassbox.Location = new System.Drawing.Point(22, 187);
             this.grspassbox.Name = "grspassbox";
             this.grspassbox.PasswordChar = '•';
             this.grspassbox.PlaceholderForeColor = System.Drawing.Color.Transparent;
@@ -164,7 +162,7 @@
             this.grsmailbox.IconLeft = global::musilla.Properties.Resources.icons8_mail_501;
             this.grsmailbox.IconLeftOffset = new System.Drawing.Point(5, 0);
             this.grsmailbox.IconLeftSize = new System.Drawing.Size(30, 30);
-            this.grsmailbox.Location = new System.Drawing.Point(22, 172);
+            this.grsmailbox.Location = new System.Drawing.Point(22, 138);
             this.grsmailbox.Name = "grsmailbox";
             this.grsmailbox.PasswordChar = '\0';
             this.grsmailbox.PlaceholderForeColor = System.Drawing.Color.Transparent;
@@ -193,53 +191,6 @@
             this.LoginButton.TabIndex = 5;
             this.LoginButton.Text = "Giriş";
             this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
-            // 
-            // AdminLogin
-            // 
-            this.AdminLogin.BackColor = System.Drawing.Color.Transparent;
-            this.AdminLogin.BackgroundImage = global::musilla.Properties.Resources.icons8_admin_50;
-            this.AdminLogin.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.AdminLogin.BorderColor = System.Drawing.Color.White;
-            this.AdminLogin.BorderRadius = 15;
-            this.AdminLogin.BorderThickness = 2;
-            this.AdminLogin.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.AdminLogin.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.AdminLogin.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.AdminLogin.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.AdminLogin.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.AdminLogin.FillColor = System.Drawing.Color.Transparent;
-            this.AdminLogin.FillColor2 = System.Drawing.Color.Transparent;
-            this.AdminLogin.FocusedColor = System.Drawing.Color.Transparent;
-            this.AdminLogin.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.AdminLogin.ForeColor = System.Drawing.Color.White;
-            this.AdminLogin.Location = new System.Drawing.Point(12, 606);
-            this.AdminLogin.Name = "AdminLogin";
-            this.AdminLogin.Size = new System.Drawing.Size(63, 60);
-            this.AdminLogin.TabIndex = 11;
-            this.AdminLogin.Click += new System.EventHandler(this.AdminLogin_Click);
-            // 
-            // guna2GradientButton1
-            // 
-            this.guna2GradientButton1.BackColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.BackgroundImage = global::musilla.Properties.Resources.icons8_sound_50;
-            this.guna2GradientButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.guna2GradientButton1.BorderColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.BorderRadius = 15;
-            this.guna2GradientButton1.BorderThickness = 2;
-            this.guna2GradientButton1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2GradientButton1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.FillColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2GradientButton1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2GradientButton1.FillColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.FillColor2 = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.FocusedColor = System.Drawing.Color.Transparent;
-            this.guna2GradientButton1.Font = new System.Drawing.Font("Segoe UI", 9.75F);
-            this.guna2GradientButton1.ForeColor = System.Drawing.Color.White;
-            this.guna2GradientButton1.Location = new System.Drawing.Point(79, 606);
-            this.guna2GradientButton1.Name = "guna2GradientButton1";
-            this.guna2GradientButton1.Size = new System.Drawing.Size(63, 60);
-            this.guna2GradientButton1.TabIndex = 12;
             // 
             // FormBorderStylePanel
             // 
@@ -279,8 +230,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(562, 678);
             this.Controls.Add(this.FormBorderStylePanel);
-            this.Controls.Add(this.guna2GradientButton1);
-            this.Controls.Add(this.AdminLogin);
             this.Controls.Add(this.guna2Panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
@@ -304,8 +253,6 @@
         public Guna.UI2.WinForms.Guna2TextBox grspassbox;
         public Guna.UI2.WinForms.Guna2TextBox grsmailbox;
         private Guna.UI2.WinForms.Guna2GradientButton LoginButton;
-        private Guna.UI2.WinForms.Guna2GradientButton AdminLogin;
-        private Guna.UI2.WinForms.Guna2GradientButton guna2GradientButton1;
         private Guna.UI2.WinForms.Guna2Panel FormBorderStylePanel;
         private Guna.UI2.WinForms.Guna2Button CloseButton;
     }

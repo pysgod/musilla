@@ -72,8 +72,9 @@ namespace musilla
                     if (eslesme)
                     {
                         anasayfa anasayfa = new anasayfa();
-                        anasayfa.Show();
+                        anasayfa.Show();                    
                         this.Hide();
+                       
                     }
                     else
                     {
@@ -121,9 +122,7 @@ namespace musilla
 
         private void AdminLogin_Click(object sender, EventArgs e)
         {
-            adminpanel adminpanel = new adminpanel();
-            adminpanel.Show();
-            this.Hide();
+
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
@@ -135,5 +134,6 @@ namespace musilla
         {
 
         }
+
     }
 }
