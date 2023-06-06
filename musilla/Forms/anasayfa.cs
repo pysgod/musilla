@@ -49,10 +49,11 @@ namespace musilla
             }
         }
         #endregion
-        private void OpenChildForm(Form childForm)
+        public void OpenChildForm(Form childForm)
         {
             //open only form
             currentChildForm?.Close();
+            currentChildForm?.Dispose();
             currentChildForm = childForm;
             //End
             childForm.TopLevel = false;
@@ -63,9 +64,12 @@ namespace musilla
             childForm.BringToFront();
             childForm.Show();
         }
+
         private void MainPageButton_Click(object sender, EventArgs e)
         {
             PageNameLabel.Text = "Ana Sayfa";
+            currentChildForm?.Close();
+            currentChildForm?.Dispose();
         }
 
         private void LibraryPageButton_Click(object sender, EventArgs e)
@@ -83,11 +87,23 @@ namespace musilla
         private void SettingsPageButton_Click(object sender, EventArgs e)
         {
             PageNameLabel.Text = "Ayarlar";
+            OpenChildForm(new kullaniciayarlari());
         }
 
         private void CloseButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void CloseAccountButton_Click(object sender, EventArgs e)
+        {
+            Application.Restart();
+            Environment.Exit(0);
+        }
+
+        private void PagesPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

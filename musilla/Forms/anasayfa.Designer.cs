@@ -38,7 +38,7 @@
             this.guna2GroupBox1 = new Guna.UI2.WinForms.Guna2GroupBox();
             this.FormBorderStyle1 = new Guna.UI2.WinForms.Guna2Panel();
             this.CloseButton = new Guna.UI2.WinForms.Guna2Button();
-            this.FormBorderStyle2 = new Guna.UI2.WinForms.Guna2Panel();
+            this.CloseAccountButton = new Guna.UI2.WinForms.Guna2Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.FormBorderStyle1.SuspendLayout();
             this.SuspendLayout();
@@ -59,6 +59,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(188, 176);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
@@ -184,6 +185,7 @@
             this.PagesPanel.Name = "PagesPanel";
             this.PagesPanel.Size = new System.Drawing.Size(1085, 650);
             this.PagesPanel.TabIndex = 8;
+            this.PagesPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.PagesPanel_Paint);
             // 
             // guna2GroupBox1
             // 
@@ -199,11 +201,11 @@
             // 
             // FormBorderStyle1
             // 
-            this.FormBorderStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.FormBorderStyle1.BackColor = System.Drawing.Color.Gainsboro;
             this.FormBorderStyle1.Controls.Add(this.CloseButton);
-            this.FormBorderStyle1.Location = new System.Drawing.Point(195, 0);
+            this.FormBorderStyle1.Location = new System.Drawing.Point(-39, 0);
             this.FormBorderStyle1.Name = "FormBorderStyle1";
-            this.FormBorderStyle1.Size = new System.Drawing.Size(1085, 30);
+            this.FormBorderStyle1.Size = new System.Drawing.Size(1319, 30);
             this.FormBorderStyle1.TabIndex = 0;
             this.FormBorderStyle1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormBorderStyle_MouseMove);
             // 
@@ -219,20 +221,40 @@
             this.CloseButton.FillColor = System.Drawing.Color.Transparent;
             this.CloseButton.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.CloseButton.ForeColor = System.Drawing.Color.White;
-            this.CloseButton.Location = new System.Drawing.Point(1046, 0);
+            this.CloseButton.Location = new System.Drawing.Point(1280, 0);
             this.CloseButton.Name = "CloseButton";
             this.CloseButton.Size = new System.Drawing.Size(39, 30);
             this.CloseButton.TabIndex = 2;
             this.CloseButton.Click += new System.EventHandler(this.CloseButton_Click);
             // 
-            // FormBorderStyle2
+            // CloseAccountButton
             // 
-            this.FormBorderStyle2.BackColor = System.Drawing.Color.Transparent;
-            this.FormBorderStyle2.Location = new System.Drawing.Point(-14, 0);
-            this.FormBorderStyle2.Name = "FormBorderStyle2";
-            this.FormBorderStyle2.Size = new System.Drawing.Size(211, 30);
-            this.FormBorderStyle2.TabIndex = 3;
-            this.FormBorderStyle2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FormBorderStyle2_MouseMove);
+            this.CloseAccountButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.CloseAccountButton.AutoRoundedCorners = true;
+            this.CloseAccountButton.BackColor = System.Drawing.Color.Transparent;
+            this.CloseAccountButton.BorderColor = System.Drawing.Color.White;
+            this.CloseAccountButton.BorderRadius = 18;
+            this.CloseAccountButton.BorderThickness = 2;
+            this.CloseAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.CloseAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.CloseAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.CloseAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.CloseAccountButton.FillColor = System.Drawing.Color.Transparent;
+            this.CloseAccountButton.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold);
+            this.CloseAccountButton.ForeColor = System.Drawing.Color.White;
+            this.CloseAccountButton.Image = global::musilla.Properties.Resources.icons8_logout_rounded_left_50;
+            this.CloseAccountButton.ImageAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.CloseAccountButton.ImageOffset = new System.Drawing.Point(5, 0);
+            this.CloseAccountButton.ImageSize = new System.Drawing.Size(25, 25);
+            this.CloseAccountButton.Location = new System.Drawing.Point(6, 600);
+            this.CloseAccountButton.Name = "CloseAccountButton";
+            this.CloseAccountButton.Size = new System.Drawing.Size(182, 38);
+            this.CloseAccountButton.TabIndex = 10;
+            this.CloseAccountButton.Text = "Hesabından Çık";
+            this.CloseAccountButton.TextOffset = new System.Drawing.Point(10, 0);
+            this.CloseAccountButton.UseTransparentBackground = true;
+            this.CloseAccountButton.Click += new System.EventHandler(this.CloseAccountButton_Click);
             // 
             // anasayfa
             // 
@@ -241,8 +263,8 @@
             this.BackgroundImage = global::musilla.Properties.Resources.beautiful_shapes_abstract_background_free_video;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1280, 650);
+            this.Controls.Add(this.CloseAccountButton);
             this.Controls.Add(this.FormBorderStyle1);
-            this.Controls.Add(this.FormBorderStyle2);
             this.Controls.Add(this.guna2GroupBox1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.PageNameLabel);
@@ -264,11 +286,11 @@
         private Guna.UI2.WinForms.Guna2Button SearchPageButton;
         private Guna.UI2.WinForms.Guna2Button SettingsPageButton;
         private System.Windows.Forms.Label PageNameLabel;
-        private Guna.UI2.WinForms.Guna2Panel PagesPanel;
         private Guna.UI2.WinForms.Guna2Button LibraryPageButton;
         private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBox1;
         private Guna.UI2.WinForms.Guna2Panel FormBorderStyle1;
         private Guna.UI2.WinForms.Guna2Button CloseButton;
-        private Guna.UI2.WinForms.Guna2Panel FormBorderStyle2;
+        private Guna.UI2.WinForms.Guna2Button CloseAccountButton;
+        public Guna.UI2.WinForms.Guna2Panel PagesPanel;
     }
 }
