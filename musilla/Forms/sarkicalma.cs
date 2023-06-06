@@ -108,26 +108,22 @@ namespace musilla.Forms
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            if (gveri == 0)
-            {
-                calmalistesi calmalistesi = new calmalistesi();
-                calmalistesi.Show();
-                this.Close();
-            }
-            else if (gveri==1)
-            {
-                arama arama = new arama();
-                arama.Show();
-                this.Close();
-            }
-        }
-
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+
+            if (gveri == 0)
+            {
+                (Application.OpenForms["anasayfa"] as anasayfa).OpenChildForm(new calmalistesi());
+            }
+            else if (gveri == 1)
+            {
+                (Application.OpenForms["anasayfa"] as anasayfa).OpenChildForm(new arama());
+            }
         }
 
         private void sarkicalma_Load(object sender, EventArgs e)
