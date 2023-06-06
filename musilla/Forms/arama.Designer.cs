@@ -43,7 +43,6 @@
             this.sarkilarlbl = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.SearchButton = new Guna.UI2.WinForms.Guna2Button();
             this.SearchBox = new Guna.UI2.WinForms.Guna2TextBox();
             this.sarkilarDGV = new System.Windows.Forms.DataGridView();
             this.sarkiID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,9 +56,10 @@
             this.sanatcilarDGVsanatcilar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.adsoyad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kullanicilarDGV = new System.Windows.Forms.DataGridView();
-            this.kulalniciID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kullaniciadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddSongtoList = new Guna.UI2.WinForms.Guna2Button();
+            this.SearchButton = new Guna.UI2.WinForms.Guna2Button();
+            this.kullaniciID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kullaniciadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.sarkilarDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.sanatcilarDGV)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kullanicilarDGV)).BeginInit();
@@ -95,27 +95,6 @@
             this.label3.Size = new System.Drawing.Size(75, 17);
             this.label3.TabIndex = 19;
             this.label3.Text = "Kullanıcılar";
-            // 
-            // SearchButton
-            // 
-            this.SearchButton.Animated = true;
-            this.SearchButton.AutoRoundedCorners = true;
-            this.SearchButton.BackColor = System.Drawing.Color.Transparent;
-            this.SearchButton.BorderRadius = 17;
-            this.SearchButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.SearchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.SearchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.SearchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.SearchButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(222)))), ((int)(((byte)(177)))));
-            this.SearchButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
-            this.SearchButton.ForeColor = System.Drawing.Color.White;
-            this.SearchButton.Image = global::musilla.Properties.Resources.icons8_search_52;
-            this.SearchButton.ImageSize = new System.Drawing.Size(25, 25);
-            this.SearchButton.Location = new System.Drawing.Point(537, 45);
-            this.SearchButton.Name = "SearchButton";
-            this.SearchButton.Size = new System.Drawing.Size(77, 36);
-            this.SearchButton.TabIndex = 21;
-            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
             // 
             // SearchBox
             // 
@@ -172,7 +151,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.sarkilarDGV.DefaultCellStyle = dataGridViewCellStyle2;
             this.sarkilarDGV.GridColor = System.Drawing.Color.White;
-            this.sarkilarDGV.Location = new System.Drawing.Point(5, 120);
+            this.sarkilarDGV.Location = new System.Drawing.Point(8, 120);
             this.sarkilarDGV.MultiSelect = false;
             this.sarkilarDGV.Name = "sarkilarDGV";
             this.sarkilarDGV.ReadOnly = true;
@@ -193,6 +172,7 @@
             this.sarkilarDGV.Size = new System.Drawing.Size(1068, 195);
             this.sarkilarDGV.TabIndex = 23;
             this.sarkilarDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sarkilarDGV_CellClick_1);
+            this.sarkilarDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sarkilarDGV_CellContentClick);
             this.sarkilarDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sarkilarDGV_CellDoubleClick_1);
             // 
             // sarkiID
@@ -291,6 +271,8 @@
             this.sanatcilarDGV.Size = new System.Drawing.Size(793, 303);
             this.sanatcilarDGV.TabIndex = 24;
             this.sanatcilarDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sanatcilarDGV_CellClick_1);
+            this.sanatcilarDGV.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sanatcilarDGV_CellContentClick);
+            this.sanatcilarDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.sanatcilarDGV_CellDoubleClick);
             // 
             // Kimlik
             // 
@@ -334,7 +316,7 @@
             this.kullanicilarDGV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.kullanicilarDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.kullanicilarDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.kulalniciID,
+            this.kullaniciID,
             this.kullaniciadi});
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
@@ -367,21 +349,7 @@
             this.kullanicilarDGV.Size = new System.Drawing.Size(269, 303);
             this.kullanicilarDGV.TabIndex = 25;
             this.kullanicilarDGV.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kullanicilarDGV_CellClick);
-            // 
-            // kulalniciID
-            // 
-            this.kulalniciID.HeaderText = "kullaniciID";
-            this.kulalniciID.Name = "kulalniciID";
-            this.kulalniciID.ReadOnly = true;
-            this.kulalniciID.Visible = false;
-            // 
-            // kullaniciadi
-            // 
-            this.kullaniciadi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.kullaniciadi.FillWeight = 50F;
-            this.kullaniciadi.HeaderText = "Kullanıcılar";
-            this.kullaniciadi.Name = "kullaniciadi";
-            this.kullaniciadi.ReadOnly = true;
+            this.kullanicilarDGV.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.kullanicilarDGV_CellDoubleClick);
             // 
             // AddSongtoList
             // 
@@ -398,11 +366,48 @@
             this.AddSongtoList.ForeColor = System.Drawing.Color.White;
             this.AddSongtoList.Image = global::musilla.Properties.Resources.icons8_add_50;
             this.AddSongtoList.ImageSize = new System.Drawing.Size(25, 25);
-            this.AddSongtoList.Location = new System.Drawing.Point(919, 78);
+            this.AddSongtoList.Location = new System.Drawing.Point(922, 75);
             this.AddSongtoList.Name = "AddSongtoList";
             this.AddSongtoList.Size = new System.Drawing.Size(154, 39);
             this.AddSongtoList.TabIndex = 26;
             this.AddSongtoList.Text = "Çalma Listesine Ekle";
+            this.AddSongtoList.Click += new System.EventHandler(this.AddSongtoList_Click);
+            // 
+            // SearchButton
+            // 
+            this.SearchButton.Animated = true;
+            this.SearchButton.AutoRoundedCorners = true;
+            this.SearchButton.BackColor = System.Drawing.Color.Transparent;
+            this.SearchButton.BorderRadius = 17;
+            this.SearchButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.SearchButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.SearchButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.SearchButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.SearchButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(222)))), ((int)(((byte)(177)))));
+            this.SearchButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold);
+            this.SearchButton.ForeColor = System.Drawing.Color.White;
+            this.SearchButton.Image = global::musilla.Properties.Resources.icons8_search_52;
+            this.SearchButton.ImageSize = new System.Drawing.Size(25, 25);
+            this.SearchButton.Location = new System.Drawing.Point(537, 45);
+            this.SearchButton.Name = "SearchButton";
+            this.SearchButton.Size = new System.Drawing.Size(77, 36);
+            this.SearchButton.TabIndex = 21;
+            this.SearchButton.Click += new System.EventHandler(this.SearchButton_Click);
+            // 
+            // kullaniciID
+            // 
+            this.kullaniciID.HeaderText = "kullaniciID";
+            this.kullaniciID.Name = "kullaniciID";
+            this.kullaniciID.ReadOnly = true;
+            this.kullaniciID.Visible = false;
+            // 
+            // kullaniciadi
+            // 
+            this.kullaniciadi.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.kullaniciadi.FillWeight = 50F;
+            this.kullaniciadi.HeaderText = "Kullanıcılar";
+            this.kullaniciadi.Name = "kullaniciadi";
+            this.kullaniciadi.ReadOnly = true;
             // 
             // arama
             // 
@@ -451,8 +456,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn sanatcilarDGVsanatcilar;
         private System.Windows.Forms.DataGridViewTextBoxColumn adsoyad;
         private System.Windows.Forms.DataGridView kullanicilarDGV;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kulalniciID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciadi;
         private Guna.UI2.WinForms.Guna2Button AddSongtoList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn kullaniciadi;
     }
 }

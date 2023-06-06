@@ -99,14 +99,46 @@ namespace musilla
 
         private void sarkilarDGV_CellDoubleClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            sarkicalma sarkicalma = new sarkicalma(gidenveri);
-            sarkicalma.Show();
-            this.Close();
+            (Application.OpenForms["anasayfa"] as anasayfa).OpenChildForm(new sarkicalma(gidenveri));
         }
         private void sanatcilarDGV_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             aSanatci = sanatcilarDGV.SelectedRows[0].Cells["Kimlik"].Value.ToString();
         }
+
+        private void sarkilarDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void AddSongtoList_Click(object sender, EventArgs e)
+        {
+            if(a
+            else
+            {
+                MessageBox.Show("ŞARKI SEÇİNİZ PLSSS");
+            }Sarki != null)
+            {
+                PlayListSelecter playListSelecter = new PlayListSelecter();
+                playListSelecter.ShowDialog();
+            }
+        }
+
+        private void sanatcilarDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void sanatcilarDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            (Application.OpenForms["anasayfa"] as anasayfa).OpenChildForm(new sanatcibilgileri());
+        }
+
+        private void kullanicilarDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            (Application.OpenForms["anasayfa"] as anasayfa).OpenChildForm(new kullanicibilgileri());
+        }
+
         private void sarkilarDGV_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             aSarki = sarkilarDGV.SelectedRows[0].Cells["sarkiID"].Value.ToString();
