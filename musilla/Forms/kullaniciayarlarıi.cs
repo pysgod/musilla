@@ -85,30 +85,30 @@ namespace musilla.Forms
             oku = komut.ExecuteReader();
             while (oku.Read())
             {
-                SettingNameBox.Text = oku["ad"].ToString();
-                SettingSurnameBox.Text = oku["soyad"].ToString();
-                SettingUserNameBox.Text = oku["kullaniciadi"].ToString();
-                SettingMailBox.Text = oku["Eposta"].ToString();
+                RealName.Text = oku["ad"].ToString();
+                RealSurname.Text = oku["soyad"].ToString();
+                KullaniciName.Text = oku["kullaniciadi"].ToString();
+                MailAdress.Text = oku["Eposta"].ToString();
                 break;
             }
             baglan.Close();
-            SettingNameBox.Enabled = false;
-            SettingSurnameBox.Enabled = false;
-            SettingUserNameBox.Enabled = false;
-            SettingMailBox.Enabled = false;
-            SettingPassBox.Enabled = false;
-            SettingSaveButon.Text = "Düzenle";
-            SettingPassBox.Text = "";
+            RealName.Enabled = false;
+            RealSurname.Enabled = false;
+            KullaniciName.Enabled = false;
+            MailAdress.Enabled = false;
+            PassBox.Enabled = false;
+            SaveButton.Text = "Düzenle";
+            PassBox.Text = "";
             setuyarilbl.Text = "";
 
         }
         public void UserEditing()
         {
-            SettingNameBox.Enabled = true;
-            SettingSurnameBox.Enabled = true;
-            SettingUserNameBox.Enabled = true;
-            SettingPassBox.Enabled = true;
-            SettingSaveButon.Text = "Kaydet";
+            RealName.Enabled = true;
+            RealSurname.Enabled = true;
+            KullaniciName.Enabled = true;
+            PassBox.Enabled = true;
+            SaveButton.Text = "Kaydet";
             isClicked = true;
         }
         public void UserPasswordChecking()
@@ -123,7 +123,7 @@ namespace musilla.Forms
                 break;
             }
             baglan.Close();
-            if (SettingPassBox.Text == password)
+            if (PassBox.Text == password)
             {
                 UserSave();
                 UserFormOpens();
@@ -137,7 +137,7 @@ namespace musilla.Forms
         public void UserSave()
         {
             baglan.Open();
-            komut = new OleDbCommand("UPDATE kullanicilar SET ad='" + SettingNameBox.Text + "', soyad='" + SettingSurnameBox.Text + "', kullaniciadi='" + SettingUserNameBox.Text + "' Where Eposta='" + frm1.grsmailbox.Text + "'", baglan);
+            komut = new OleDbCommand("UPDATE kullanicilar SET ad='" + RealName.Text + "', soyad='" + RealSurname.Text + "', kullaniciadi='" + KullaniciName.Text + "' Where Eposta='" + frm1.grsmailbox.Text + "'", baglan);
             komut.ExecuteNonQuery();
             baglan.Close();
             isClicked = false;
@@ -149,14 +149,7 @@ namespace musilla.Forms
             PasswordFormOpens();
         }
 
-        private void button1_Click(object sender, System.EventArgs e)
-        {
-            anasayfa anasayfa = new anasayfa();
-            anasayfa.Show();
-                this.Close();
-        }
-
-        private void NewPassButon_Click(object sender, System.EventArgs e)
+        private void NewPassButon_Click_1(object sender, System.EventArgs e)
         {
             if (isPassButonClicked == false)
             {
@@ -168,7 +161,7 @@ namespace musilla.Forms
             }
         }
 
-        private void SettingSaveButon_Click(object sender, System.EventArgs e)
+        private void SaveButton_Click(object sender, System.EventArgs e)
         {
             if (isClicked == false)
             {

@@ -55,13 +55,13 @@ namespace musilla.Forms
         }
         public void UserPlaylist()
         {
-            UserDGV.Rows.Clear();
+            calmalisteleriDGV.Rows.Clear();
             baglan.Open();
             komut = new OleDbCommand("SELECT isim, aciklama FROM playlistler where kullaniciid="+arama.aKullanici+"",baglan);
             oku = komut.ExecuteReader();
             while (oku.Read())
             {
-                UserDGV.Rows.Add(oku["isim"], oku["aciklama"]);
+                calmalisteleriDGV.Rows.Add(oku["isim"], oku["aciklama"]);
             }
             baglan.Close();
         }
@@ -76,6 +76,11 @@ namespace musilla.Forms
         {
             arama.Show();
             this.Close();
+        }
+
+        private void BackButton_Click(object sender, EventArgs e)
+        {
+            (Application.OpenForms["anasayfa"] as anasayfa).OpenChildForm(new arama());
         }
     }
 }
