@@ -11,6 +11,7 @@ using System.Data.OleDb;
 using System.IO;
 using System.Runtime.InteropServices.ComTypes;
 using musilla.Forms;
+using System.Drawing.Imaging;
 
 namespace musilla
 {
@@ -34,12 +35,14 @@ namespace musilla
 
         public void clsarkilari() 
         {
+            calmalistesiDGV.Rows.Clear();   
             baglan.Open();
-            adtr = new OleDbDataAdapter("SELECT s.sarkiID,s.isim as [Şarkılar], a.isim as [Albümler], s.sure as [🕒] FROM sarkilar AS s, albumler AS a WHERE s.albumler = a.Kimlik and sarkiID in (SELECT sarkilarID FROM playlistkayit WHERE playlistID = "+kitaplik.clid+ ");", baglan);
-            ds = new DataSet();
-            adtr.Fill(ds, "playlistkayit");
-            sarkilarDGV.DataSource = ds.Tables["playlistkayit"];
-            sarkilarDGV.Columns[0].Visible = false;
+            komut = new OleDbCommand("SELECT s.sarkiID,s.isim,sa.kullaniciadi, a.isim as [albümler] , t.musictur, s.sure FROM sarkilar AS s,albumler AS a, musictur AS t,sanatcilar as sa WHERE s.albumler = a.Kimlik and s.sanatciid = sa.Kimlik and s.tur = t.Kimlik and sarkiID in ( select sarkilarID from playlistkayit where playlistID="+ kitaplik.clid +")", baglan);
+            oku = komut.ExecuteReader();
+            while (oku.Read())
+            {
+                calmalistesiDGV.Rows.Add(oku["sarkiID"], oku["isim"], oku["kullaniciadi"], oku["albümler"], oku["musictur"], oku["sure"]);
+            }
             baglan.Close();
         }
         public void listedencikar()
@@ -53,31 +56,11 @@ namespace musilla
         { 
             clsarkilari();
         }
-
-        private void clgeritus_Click(object sender, EventArgs e)
-        {
-            kitaplik kitaplik = new kitaplik();
-            kitaplik.Show();
-            this.Close();
-        }
-
-        private void sarkilarDGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void sarkilarDGV_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ClSarki = sarkilarDGV.SelectedRows[0].Cells["sarkiID"].Value.ToString();
-        }
         private void sarkilarDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            sarkicalma sarkicalma = new sarkicalma(gidenveri);
-            sarkicalma.Show();
-            this.Hide();
+           
         }
-
-        private void cikarbuton_Click(object sender, EventArgs e)
+        private void DeleteFromList_Click(object sender, EventArgs e)
         {
             if (ClSarki != null)
             {
@@ -88,6 +71,16 @@ namespace musilla
             {
                 MessageBox.Show("Lütfen Şarki Seçiniz.");
             }
+        }
+
+        private void calmalistesiDGV_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ClSarki = calmalistesiDGV.SelectedRows[0].Cells["sarkiID"].Value.ToString();
+        }
+
+        private void calmalistesiDGV_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            (Application.OpenForms["anasayfa"] as anasayfa).OpenChildForm(new sarkicalma(gidenveri));
         }
     }
 }
