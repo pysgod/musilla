@@ -90,24 +90,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\adinpanelsanatcilar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Forms\adinpanelsanatcilar.Designer.cs">
-      <DependentUpon>adinpanelsanatcilar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\adminpanel.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\adminpanel.Designer.cs">
-      <DependentUpon>adminpanel.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\adminsanatciayarlari.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\adminsanatciayarlari.Designer.cs">
-      <DependentUpon>adminsanatciayarlari.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\anasayfa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +144,12 @@
     <Compile Include="Forms\kullanicibilgileri.Designer.cs">
       <DependentUpon>kullanicibilgileri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\PlayListSelecter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PlayListSelecter.Designer.cs">
+      <DependentUpon>PlayListSelecter.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\sanatcibilgileri.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,15 +164,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\adinpanelsanatcilar.resx">
-      <DependentUpon>adinpanelsanatcilar.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\adminpanel.resx">
-      <DependentUpon>adminpanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\adminsanatciayarlari.resx">
-      <DependentUpon>adminsanatciayarlari.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\anasayfa.resx">
       <DependentUpon>anasayfa.cs</DependentUpon>
     </EmbeddedResource>
@@ -211,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\kullanicibilgileri.resx">
       <DependentUpon>kullanicibilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\PlayListSelecter.resx">
+      <DependentUpon>PlayListSelecter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\sanatcibilgileri.resx">
       <DependentUpon>sanatcibilgileri.cs</DependentUpon>
@@ -319,6 +301,51 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-save-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-name-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-logout-rounded-left-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-male-user-50 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-secure-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\asdasdas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Başlıksız-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-go-back-52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-itunes-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-itunes-150.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-itunes-150 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-music-album-50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-album-100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-album-100 %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-male-user-1001.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-admin-48 %281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
