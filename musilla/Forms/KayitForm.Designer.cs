@@ -157,6 +157,7 @@
             this.LoginLabel.Size = new System.Drawing.Size(62, 16);
             this.LoginLabel.TabIndex = 9;
             this.LoginLabel.Text = "Giriş Yap";
+            this.LoginLabel.Click += new System.EventHandler(this.LoginLabel_Click);
             // 
             // grsuyarilbl
             // 
@@ -184,6 +185,7 @@
             this.RegPassShow.UncheckedState.BorderRadius = 0;
             this.RegPassShow.UncheckedState.BorderThickness = 0;
             this.RegPassShow.UncheckedState.FillColor = System.Drawing.Color.Silver;
+            this.RegPassShow.CheckedChanged += new System.EventHandler(this.RegPassShow_CheckedChanged_1);
             // 
             // RegUserNameBox
             // 
@@ -264,6 +266,7 @@
             this.RegisterButton.Size = new System.Drawing.Size(229, 45);
             this.RegisterButton.TabIndex = 5;
             this.RegisterButton.Text = "Kayıt Ol";
+            this.RegisterButton.Click += new System.EventHandler(this.RegisterButton_Click);
             // 
             // FormBorderStylePanel
             // 

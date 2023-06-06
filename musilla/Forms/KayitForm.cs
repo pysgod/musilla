@@ -112,19 +112,14 @@ namespace musilla
         {
 
         }
-        private void RegisterButton_Click(object sender, EventArgs e)
+
+
+        private void CloseButton_Click(object sender, EventArgs e)
         {
-            Register();
+            Application.Exit();
         }
 
-        private void LoginLabel_Click(object sender, EventArgs e)
-        {
-           Form1 Form1 = new Form1();
-           Form1.Show();
-           this.Close();
-        }
-
-        private void RegPassShow_CheckedChanged(object sender, EventArgs e)
+        private void RegPassShow_CheckedChanged_1(object sender, EventArgs e)
         {
             if (RegPassShow.Checked == false)
             {
@@ -141,9 +136,19 @@ namespace musilla
             }
         }
 
-        private void CloseButton_Click(object sender, EventArgs e)
+        private void RegisterButton_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            Register();
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
+        }
+
+        private void LoginLabel_Click(object sender, EventArgs e)
+        {
+            Form1 form1 = new Form1();
+            form1.Show();
+            this.Close();
         }
     }
 }

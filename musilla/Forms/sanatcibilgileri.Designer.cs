@@ -46,7 +46,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(168, 85);
+            this.label1.Location = new System.Drawing.Point(168, 142);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 16;
@@ -60,13 +60,13 @@
             this.songDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ÇalmaListeleri,
             this.sure});
-            this.songDGV.Location = new System.Drawing.Point(11, 202);
+            this.songDGV.Location = new System.Drawing.Point(109, 259);
             this.songDGV.Name = "songDGV";
             this.songDGV.ReadOnly = true;
             this.songDGV.RowHeadersVisible = false;
             this.songDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.songDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.songDGV.Size = new System.Drawing.Size(416, 240);
+            this.songDGV.Size = new System.Drawing.Size(417, 265);
             this.songDGV.TabIndex = 15;
             // 
             // ÇalmaListeleri
@@ -86,7 +86,7 @@
             // AboutLabel
             // 
             this.AboutLabel.AutoSize = true;
-            this.AboutLabel.Location = new System.Drawing.Point(168, 173);
+            this.AboutLabel.Location = new System.Drawing.Point(168, 230);
             this.AboutLabel.Name = "AboutLabel";
             this.AboutLabel.Size = new System.Drawing.Size(88, 13);
             this.AboutLabel.TabIndex = 14;
@@ -95,7 +95,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = global::musilla.Properties.Resources.Ekran_görüntüsü_2023_04_23_041627;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 46);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 103);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(150, 150);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -106,7 +106,7 @@
             // 
             this.NameLabel.AutoSize = true;
             this.NameLabel.Font = new System.Drawing.Font("Gotham", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NameLabel.Location = new System.Drawing.Point(168, 112);
+            this.NameLabel.Location = new System.Drawing.Point(168, 169);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(161, 39);
             this.NameLabel.TabIndex = 12;
@@ -119,13 +119,13 @@
             this.albumDGV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.albumDGV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1});
-            this.albumDGV.Location = new System.Drawing.Point(449, 202);
+            this.albumDGV.Location = new System.Drawing.Point(532, 259);
             this.albumDGV.Name = "albumDGV";
             this.albumDGV.ReadOnly = true;
             this.albumDGV.RowHeadersVisible = false;
             this.albumDGV.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.albumDGV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.albumDGV.Size = new System.Drawing.Size(416, 240);
+            this.albumDGV.Size = new System.Drawing.Size(417, 265);
             this.albumDGV.TabIndex = 17;
             // 
             // dataGridViewTextBoxColumn1
@@ -137,7 +137,7 @@
             // 
             // albumbilgilerigeri
             // 
-            this.albumbilgilerigeri.Location = new System.Drawing.Point(12, 12);
+            this.albumbilgilerigeri.Location = new System.Drawing.Point(12, 69);
             this.albumbilgilerigeri.Name = "albumbilgilerigeri";
             this.albumbilgilerigeri.Size = new System.Drawing.Size(75, 25);
             this.albumbilgilerigeri.TabIndex = 18;
@@ -149,7 +149,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(883, 450);
+            this.ClientSize = new System.Drawing.Size(1085, 650);
             this.Controls.Add(this.albumbilgilerigeri);
             this.Controls.Add(this.albumDGV);
             this.Controls.Add(this.label1);

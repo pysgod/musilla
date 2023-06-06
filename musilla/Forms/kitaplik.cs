@@ -1,4 +1,5 @@
-﻿using System;
+﻿using musilla.Forms;
+using System;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
@@ -113,9 +114,7 @@ namespace musilla
         {
             if (clid != null)
             {
-                calmalistesi calmalistesi = new calmalistesi();
-                calmalistesi.Show();
-                this.Close();
+                (Application.OpenForms["anasayfa"] as anasayfa).OpenChildForm(new calmalistesi());
             }
             else
             {
